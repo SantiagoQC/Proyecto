@@ -18,10 +18,10 @@ y el dinero acumulado del banco.
 FECHA: /11/2018
 
 CREADORES: 
-	    Daniel Andres Clavijo Giraldo
-            Juan Camilo Valenzuela Giraldo
-            Santiago Quintero Carmona 
-            Luis Felipe Henao Palacios 
+Daniel Andres Clavijo Giraldo
+Juan Camilo Valenzuela Giraldo
+Santiago Quintero Carmona 
+Luis Felipe Henao Palacios 
 */
 
 //Librerias
@@ -65,7 +65,7 @@ void crear (struct cuentas clientes[999999])
 		cont = cont1 + cont2;
 		if(cont <= 50)
 		{
-			intento:
+			intento9:
 				
 				system("cls");
 			printf("Ingrese el tipo de cliente que es \n");
@@ -79,11 +79,29 @@ void crear (struct cuentas clientes[999999])
 				case 1:
 				{
 					cont1 = cont1 + 1;
+					int idid;
+					char pass[20];
 					intento2:
+						printf("Ingrese id de la cuenta\n");
+						scanf("%i",&idid);
+						
+						for(int i=0;i<50;i++){
+							if(idid==clientes[i].registro.idcuenta )
+						   {
+								intento666:
+									fflush(stdin);
+									printf("Ingrese la contraseña de 6 digitos\n");
+								gets(pass);
+								if (pass[0]==clientes[i].registro.contrasena[0] && pass[1]==clientes[i].registro.contrasena[1] && pass[2]==clientes[i].registro.contrasena[2] && pass[3]==clientes[i].registro.contrasena[3] && pass[4]==clientes[i].registro.contrasena[4] && pass[5]==clientes[i].registro.contrasena[5])
+								{
+								
+							
+						
 						
 						system("cls");
-					printf ("\t\t\t CLIENTE AMIGO %i \n\n", cont1);
-					printf ("\t\t\t BANCO COTECNOVA\n");
+						printf ("\t\t\t BANCO COTECNOVA\n");
+					printf ("\t\t\t CLIENTE AMIGO id#: %i \n\n",clientes[i].registro.idcuenta);
+					printf("\t\t\t Nombre: %s\n", clientes[i].registro.nombre);
 					printf ("\nQue tipo de transaccion desea realizar? \n\n");
 					printf ("\t\t\t\tMENU \n");
 					printf ("1. Transferencia de dinero \n");
@@ -184,6 +202,11 @@ void crear (struct cuentas clientes[999999])
 						fflush (stdin);
 						goto intento2;
 					}
+				}
+							else{printf("Contraseña Incorrecta ");
+							goto intento666;
+				}
+				}
 				}
 				break;
 				case 2:
@@ -299,15 +322,18 @@ void crear (struct cuentas clientes[999999])
 				case 3:
 					
 					break;
+				
+			}
 				}
-			}else // Condicion por si el usuario ha ingresado una opcion incorrecta, esto PUBLICIDAD porque no funcionó la opcion del menu
+			}
+			else // Condicion por si el usuario ha ingresado una opcion incorrecta, esto PUBLICIDAD porque no funcionó la opcion del menu
 			{
 				printf("\n -------------- Ha ingresado una opcion incorrecta ---------------- \n");
 				printf("\n ----------------- Por favor, intentelo de nuevo ------------------- \n \n");
-				printf("\n_________________Presione enter para continuar_");
+				printf("\n_________________Presione enter para continuar_______________________");
 				getch();
 				fflush (stdin);
-				goto intento;
+				goto intento9;
 			}			
 		}else
 		{
